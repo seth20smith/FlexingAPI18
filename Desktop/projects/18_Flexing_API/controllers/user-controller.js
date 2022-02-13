@@ -1,16 +1,10 @@
-const { User, Thought } = require('../models');
-
-// const {
-//     getAllUser,
-//     getUserById,
-//     createUser,
-//     updateUser,
-//     deleteUser,
-//   } = require('../../controllers/users-controller');
+const { User } = require('../models');
 
 
 
-const UserController = {
+
+
+const userController = {
     // get all 
     getAllUsers(req, res) {
         User.find({})
@@ -38,7 +32,7 @@ const UserController = {
             });
     },
 
-    creatUser(req, res) {
+    createUser(req, res) {
         User.create(req.body)
             .then(dbUserData => {
                 if (!dbUserData) {

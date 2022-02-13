@@ -17,26 +17,31 @@ const reactionSchema = new Schema({
 
   },
 
+  username: {
+    type: String,
+    required: true,
+
+  },
+
   createAt: {
     type: Date,
     default: Date.now,
     // get: moment().format('L'),
 
-  },
+  }
+},
 
-    username: {
-      type: String,
-      required: true,
 
-  },
-  
+
+
+  {
     toJSON: {
       getters: true,
       // setters: true,
       // runSettersOnQuery: true 
     }
 
-}
+  }
 );
 
 
@@ -46,7 +51,7 @@ const ThoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
-      required: 'User name is Required',
+      required: true,
       minlength: 1,
       maxlength: 280,
     },
@@ -64,13 +69,14 @@ const ThoughtSchema = new Schema(
 
     },
 
-    reactions: [ra]
+    reactions: [reactionSchema]
 
 
   },
+
   {
     toJSON: {
-      virtuals: false,
+      virtuals: true,
       getters: true,
     },
     id: false

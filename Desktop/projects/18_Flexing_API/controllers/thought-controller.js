@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 
 // const {
@@ -12,7 +12,7 @@ const { User, Thought } = require('../models');
 
 
 
-const ThoughtController = {
+const thoughtController = {
     // get all 
     getAllThoughts(req, res) {
         Thought.find({})
@@ -40,7 +40,7 @@ const ThoughtController = {
             });
     },
 
-    creatThought(req, res) {
+    createThought(req, res) {
         Thought.create(req.body)
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
